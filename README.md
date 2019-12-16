@@ -1,4 +1,4 @@
 # friendfinder
 
-## Link to Site:
+## Link to Site
 https://kayhern.github.io/friendfinder/
