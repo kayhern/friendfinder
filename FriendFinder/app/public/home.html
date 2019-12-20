@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FriendFinder Homepage</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Friend Finder</h1>
+            <hr class="my-4">
+            <p>Answer a few basic questions.<br>
+                Then find the friend with the greatest compatibility!</p>
+            <!--this should be a Heroku URL-->
+            <a class="btn btn-primary btn-lg" href="./app/public/survey.html" role="button">Go to Survey</a>
+        </div>
+
+        <!--Links to the API Friends List in Heroku, my GitHub Repo-->
+        <footer><a href="">API Friends List</a>|<a href="https://github.com/kayhern/friendfinder">GitHub Repo</a>
+        </footer>
+        <!--the scripts that will be used in this app-->
+        <script src="./app/data/friends.js"></script>
+        <script src="./server.js"></script>
+    </div>
+</body>
+
+</html>
