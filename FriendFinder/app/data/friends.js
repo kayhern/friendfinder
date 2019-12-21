@@ -32,5 +32,5 @@ let friends = [{
     ]
 }];
 
-//so other files can access this friendsArray object
+//so other files can access this friends object
 module.exports = friends;
