@@ -1,6 +1,6 @@
 //friendData - this is the format of what friend information should go into the modal if there is a match
 
-let friendArray = [{
+let friends = [{
     "name": "Ahmed",
     "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
     "scores": [
@@ -18,4 +18,4 @@ let friendArray = [{
 }];
 
 //so other files can access this friendsArray object
-module.exports = friendArray;
+module.exports = friends;
