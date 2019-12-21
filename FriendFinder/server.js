@@ -1,8 +1,3 @@
-//setup the HTML
-
-// Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
-
-
 // Your server.js file should require the basic npm packages we've used in class: express and path.
 
 // Determine the user's most compatible friend using the following as a guide:
