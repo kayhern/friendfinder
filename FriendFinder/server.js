@@ -1,4 +1,27 @@
-// Your server.js file should require the basic npm packages we've used in class: express and path.
+// Your server.js file should require the basic npm packages we've used in class: express and path. A lot of this code is borrowed from the Restaurant Table Reservation Activity
+var express = require("express");
+var path = require("path");
+
+//Express configuration
+var app = express();
+
+//port information
+var PORT = process.env.PORT || 8080;
+
+//data parsing from the solved restaurant activity
+app.use(express.urlencoded({
+    extended: true
+}));
+app.use(express.json());
+
+//API and HTML Route Files Requirement
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
+
+//listener and validation I set this up correctly
+app.listen(PORT, function () {
+    console.log("App listening on PORT: " + PORT);
+});
 
 // Determine the user's most compatible friend using the following as a guide:
 
