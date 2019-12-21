@@ -1,9 +1,9 @@
-//friendData - this is the format of what friend information should go into the modal if there is a match
+//friends - this is the format of what friend information should go into the modal if there is a match
 
 let friends = [{
-    "name": "Ahmed",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-    "scores": [
+    name: "Penelope",
+    photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Racehorse_Penelope.jpg/440px-Racehorse_Penelope.jpg",
+    scores: [
         5,
         1,
         4,
@@ -14,6 +14,21 @@ let friends = [{
         5,
         4,
         1
+    ]
+}, {
+    name: "Kiki",
+    photo: "",
+    scores: [
+        5,
+        5,
+        1,
+        2,
+        3,
+        4,
+        5,
+        1,
+        3,
+        2
     ]
 }];
 

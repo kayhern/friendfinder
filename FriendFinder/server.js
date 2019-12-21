@@ -15,8 +15,8 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 //API and HTML Route Files Requirement
-require("./routing/apiRoutes")(app);
-require("./routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 //listener and validation I set this up correctly
 app.listen(PORT, function () {
