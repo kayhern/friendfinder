@@ -5,7 +5,7 @@ var express = require("express");
 var app = express();
 
 //port information
-var PORT = 8080;
+var PORT = process.env.PORT || 8080;
 
 //data parsing from the solved restaurant activity
 app.use(express.urlencoded({
