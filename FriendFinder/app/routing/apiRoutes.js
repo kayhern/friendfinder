@@ -2,7 +2,7 @@
 //***include the logic for determining best friend */
 
 //reference to thge data being pulled:
-let friends = require("./app/data/friends");
+let friends = require("../data/friends.js");
 
 module.exports = function (app) {
     // A GET route with the url /api/friends. This will be used to display a JSON of all possible friends.

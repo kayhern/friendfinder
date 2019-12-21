@@ -13,5 +13,3 @@ module.exports = function (app) {
     });
 
 };
-
-FriendFinder / app / public / home.html
