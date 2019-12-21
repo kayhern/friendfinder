@@ -4,7 +4,7 @@ var path = require("path");
 module.exports = function (app) {
     //GET that will lead to the survey page
     app.get("/survey", function (req, res) {
-        res.sendFile(path.join(__dirname, "/../public/survey.html"));
+        res.sendFile(path.join(__dirname, "../public/survey.html"));
     });
 
     //catch all default to go to the home page
@@ -13,3 +13,5 @@ module.exports = function (app) {
     });
 
 };
+
+FriendFinder / app / public / home.html
