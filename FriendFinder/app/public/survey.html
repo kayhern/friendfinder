@@ -225,9 +225,9 @@
 
                 var currentURL = window.location.origin;
                 // response in the modal after the request
-                $.post(currentURL + "/api/friends", userData, function (data) {
-                    $("#bestMatch").text(data.name);
-                    $("#photo").attr("src", data.photo);
+                $.post(currentURL + "/api/friends", userData, function (res) {
+                    $("#bestMatch").text(res.name);
+                    $("#photo").attr("src", res.photo);
                     $("#Modal").modal("toggle");
                 });
             } else {
