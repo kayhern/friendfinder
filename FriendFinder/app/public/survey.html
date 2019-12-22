@@ -156,13 +156,30 @@
             Submit</button>
         <!--The Modal for Answered Survey and Not Answered Survey-->
         <div>
-
+            <div id="Modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Your Match!</h1>
+                        </div>
+                        <div class="modal-body">
+                            <h2 id="bestMatch"></h2>
+                            <img id="photo" src="#">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close Window</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <hr>
+    </div>
+    <hr>
 
 
     </div>
-    <!--Links to the API Friends List in Heroku, my GitHub Repo-->
+    <!--Links to the API Friends List, my GitHub Repo-->
     <div class="container">
         <footer><a href="/api/friends">API Friends List</a>|<a href="https://github.com/kayhern/friendfinder">GitHub
                 Repo</a>
@@ -170,22 +187,56 @@
     </div>
     <script type="text/javascript">
         //on click event for the submit button goes here 
-        var userData = {
-            name: $("#name").val(),
-            photo: $("#photo").val(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val(),
-            ]
-        };
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            let valid = true;
+            //ensure users don't input nothing in the fields or else reject the form
+            //this is a good example: https://www.tutorialspoint.com/javascript/javascript_form_validations.htm
+            // the || means "or"
+
+            if ($("#name").val() === "" || $("#photo").val() === "") {
+                valid = false;
+                alert("Please input your name and photo!");
+            } else if ($("#q1").val() === "empty" || $("#q2").val() === "empty" || $("#q3")
+                .val() === "empty" || $("#q4").val() === "empty" || $("#q5").val() === "empty" ||
+                $("#q6").val() === "empty" || $("#q7").val() === "empty" || $("#q8")
+                .val() === "empty" || $("#q9").val() === "empty" || $("#q10").val() === "empty") {
+                valid = false;
+                alert("Please answer all of the questions!!");
+            }
+            if (valid === true) {
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val(),
+                    ]
+                };
+
+                var currentURL = window.location.origin;
+                // response in the modal after the request
+                $.post(currentURL + "/api/friends", userData, function (data) {
+                    $("#bestMatch").text(data.name);
+                    $("#photo").attr("src", data.photo);
+                    $("#Modal").modal("toggle");
+                });
+            } else {
+                // alert if the survey is not complete
+                alert("Survey is incomplete!");
+            };
+
+        });
+
         //if all questions answer a modal should appear with the match from the friends.js file
         //if not all questions modal should appear to prompt user to answer all questions before submitting the survey
         //send survey questions over to the friends.js file

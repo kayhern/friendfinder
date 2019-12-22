@@ -11,8 +11,7 @@ module.exports = function (app) {
     });
 
     app.post("/api/friends", function (req, res) {
-        //handle compatibility logic???***
-        //nested loop comparing (best match constantly changes)
+        //nested loop comparing (best match constantly changes so it has to be a loop)
         let bestMatch = {
             name: "",
             photo: "",
@@ -28,9 +27,11 @@ module.exports = function (app) {
             for (var j = 0; j < currentFriend.scores.length; j++) {
                 var currentFriendScore = currentFriend.scores[j];
                 let currentUserScores = userScores[j];
+                //this makes it so the numbers can't be negative and parses the integers so they get calculated correctly: https://www.w3schools.com/jsref/jsref_parseint.asp
                 totalDifference += Math.abs(parseInt(currentFriendScore) - parseInt(currentUserScores));
             }
             if (totalDifference <= bestMatch.friendDifference) {
+                //the matching result based upon above calculation
                 bestMatch.name = currentFriend.name;
                 bestMatch.photo = currentFriend.photo;
                 bestMatch.friendDifference = totalDifference
@@ -38,6 +39,7 @@ module.exports = function (app) {
 
 
         }
+        //push data into the friends.js file
         friends.push(userData);
         res.json(bestMatch);
 
