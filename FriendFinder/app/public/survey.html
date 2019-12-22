@@ -170,6 +170,22 @@
     </div>
     <script type="text/javascript">
         //on click event for the submit button goes here 
+        var userData = {
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val(),
+            ]
+        };
         //if all questions answer a modal should appear with the match from the friends.js file
         //if not all questions modal should appear to prompt user to answer all questions before submitting the survey
         //send survey questions over to the friends.js file

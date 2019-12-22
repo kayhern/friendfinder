@@ -12,12 +12,34 @@ module.exports = function (app) {
 
     app.post("/api/friends", function (req, res) {
         //handle compatibility logic???***
-        if (friends.length < 5) {
-            friends.push(req.body);
-            res.json(true);
-        } else {
-            friends.push(req.body);
-            res.json(false);
+        //nested loop comparing (best match constantly changes)
+        let bestMatch = {
+            name: "",
+            photo: "",
+            friendDifference: Infinity
+        };
+        let userData = req.body;
+        let userScores = userData.scores;
+        let totalDifference;
+        for (var i = 0; i < friends.length; i++) {
+            let currentFriend = friends[i];
+            totalDifference = 0;
+            //nested loop
+            for (var j = 0; j < currentFriend.scores.length; j++) {
+                var currentFriendScore = currentFriend.scores[j];
+                let currentUserScores = userScores[j];
+                totalDifference += Math.abs(parseInt(currentFriendScore) - parseInt(currentUserScores));
+            }
+            if (totalDifference <= bestMatch.friendDifference) {
+                bestMatch.name = currentFriend.name;
+                bestMatch.photo = currentFriend.photo;
+                bestMatch.friendDifference = totalDifference
+            }
+
+
         }
+        friends.push(userData);
+        res.json(bestMatch);
+
     });
 };
